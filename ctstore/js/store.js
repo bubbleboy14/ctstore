@@ -14,7 +14,7 @@ CT.onload(function() {
 			return {
 				title: d.label,
 				blurb: d.description,
-				image: d.image,
+				img: d.image,
 				tab: {
 					content: CT.dom.link("Read More!",
 						core.search.link(d.label),
