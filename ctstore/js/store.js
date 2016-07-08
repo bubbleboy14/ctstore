@@ -14,7 +14,7 @@ CT.onload(function() {
 			return {
 				title: d.label,
 				blurb: d.description,
-				img: d.img,
+				image: d.image,
 				tab: {
 					content: CT.dom.link("Read More!",
 						core.search.link(d.label),
@@ -28,7 +28,7 @@ CT.onload(function() {
 		CT.dom.node(Object.values(core.data[core.config.landing.showcase]).map(function(d) {
 			return CT.dom.node([
 				CT.dom.node(null, "div", "w1 h3-5",
-					null, null, { backgroundImage: "url(" + d.img + ")" }),
+					null, null, { backgroundImage: "url(" + d.image + ")" }),
 				CT.dom.node(d.name, "div", "big bold"),
 				d.description,
 				CT.dom.link("Read More!", function() {

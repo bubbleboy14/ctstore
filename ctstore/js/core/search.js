@@ -18,7 +18,7 @@ core.search = {
 			for (var i = 0; i < words.length; i++) {
 				var w = words[i];
 				for (var prop in d) {
-					if (prop == "img")
+					if (prop == "image")
 						continue;
 					if (["label", "description"].indexOf(prop) != -1) {
 						if (d[prop].indexOf(w) != -1)
