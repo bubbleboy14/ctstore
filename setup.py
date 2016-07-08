@@ -13,7 +13,7 @@ setup(
     ],
     zip_safe = False,
     install_requires = [
-        "ct >= 0.7.10"
+        "ct >= 0.7.10.1"
     ],
     entry_points = '''''',
     classifiers = [
