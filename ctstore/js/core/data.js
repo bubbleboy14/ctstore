@@ -1,4 +1,4 @@
-core.data.products = {
+core.data.product = {
 	"product 1": {
 		name: "A Product",
 		label: "a product",
@@ -13,4 +13,4 @@ core.data.products = {
 	}
 };
 
-core.data.all = Object.values(core.data.products);
+core.data.all = Object.values(core.data.product);

@@ -10,7 +10,7 @@ CT.onload(function() {
 	new CT.slider.Slider({
 		navButtons: false,
 		parent: CT.dom.id("slider"),
-		frames: Object.values(core.data.products).map(function(d) {
+		frames: Object.values(core.data.product).map(function(d) {
 			return {
 				title: d.label,
 				blurb: d.description,
