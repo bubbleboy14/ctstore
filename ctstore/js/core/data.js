@@ -18,6 +18,6 @@ if (core.config.data == "json") {
 		CT.db.get(modelName, function(data) {
 			core.data[modelName] = data;
 			core.data.all = core.data.all.concat(data);
-		});
+		}, 1000, null, null, null, true);
 	});
 }
