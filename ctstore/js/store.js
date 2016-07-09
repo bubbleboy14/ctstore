@@ -10,7 +10,7 @@ CT.onload(function() {
 	new CT.slider.Slider({
 		navButtons: false,
 		parent: CT.dom.id("slider"),
-		frames: Object.values(core.data.product).map(function(d) {
+		frames: core.data.product.map(function(d) {
 			return {
 				title: d.label,
 				blurb: d.description,
@@ -25,7 +25,7 @@ CT.onload(function() {
 		})
 	});
 	CT.dom.setContent(CT.dom.id("showcase"),
-		CT.dom.node(Object.values(core.data[core.config.landing.showcase]).map(function(d) {
+		CT.dom.node(core.data[core.config.landing.showcase].map(function(d) {
 			return CT.dom.node([
 				CT.dom.node(null, "div", "w1 h3-5",
 					null, null, { backgroundImage: "url(" + d.image + ")" }),
@@ -42,8 +42,8 @@ CT.onload(function() {
 	CT.panel.simple(core.config.landing.finder, null, tabs, lists);
 	core.config.landing.finder.forEach(function(category) {
 		CT.dom.setContent(CT.dom.id("sbpanel" + category, true),
-			Object.keys(core.data[category]).map(function(item) {
-				return CT.dom.link(item, core.search.link(item));
+			core.data[category].map(function(item) {
+				return CT.dom.link(item.label, core.search.link(item.label));
 			}));
 	});
 	CT.dom.setContent(CT.dom.id("finder"), CT.dom.node([tabs, lists], "div", "h1 w1"));

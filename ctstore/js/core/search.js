@@ -14,7 +14,7 @@ core.search = {
 		};
 	},
 	frames: function(category, words) {
-		return Object.values(core.data[category]).filter(function(d) {
+		return core.data[category].filter(function(d) {
 			for (var i = 0; i < words.length; i++) {
 				var w = words[i];
 				for (var prop in d) {
