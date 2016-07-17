@@ -26,15 +26,13 @@ CT.onload(function() {
 	});
 	CT.dom.setContent(CT.dom.id("showcase"),
 		CT.dom.node(core.data[core.config.landing.showcase].map(function(d) {
-			return CT.dom.node([
-				CT.dom.node(null, "div", "w1 h3-5",
+			return CT.dom.node(CT.dom.link([
+				CT.dom.node(null, "div", "w1 h4-5",
 					null, null, { backgroundImage: "url(" + d.image + ")" }),
-				CT.dom.node(d.name, "div", "big bold"),
-				d.description,
-				CT.dom.link("Read More!", function() {
-					core.search.results(d.label);
-				}, null, "right block")
-			], "div", "h1 inline-block");
+				CT.dom.node(d.name, "div", "big bold")
+			], function() {
+				core.search.results(d.label);
+			}), "div", "h1 inline-block");
 		}), "div", "w1 h1 nowrap scrollx"));
 
 	var tabs = CT.dom.node(null, "center", "h1-5", "finder_tabs"),
