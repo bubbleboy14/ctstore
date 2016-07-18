@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name='ctstore',
-    version="0.1.1",
+    version="0.1.2",
     author='Mario Balibrera',
     author_email='mario.balibrera@gmail.com',
     license='MIT License',
@@ -13,7 +13,7 @@ setup(
     ],
     zip_safe = False,
     install_requires = [
-        "ct >= 0.8.1"
+        "ct >= 0.8.2.1"
     ],
     entry_points = '''''',
     classifiers = [
