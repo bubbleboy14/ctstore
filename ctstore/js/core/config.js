@@ -1,6 +1,6 @@
 core.config = {
 	name: "CTStore E-Commerce Application",
-	data: "json", // or "db" -- for now, do everything json...
+	data: "json",
 	search: {
 		data: ["product"],
 		buttons: [],
