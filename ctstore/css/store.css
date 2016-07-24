@@ -22,19 +22,11 @@ a, a:visited {
 /* landing */
 #slider {
 	position: absolute;
-	left: 0px;
-	right: 0px;
-	top: 100px;
-	bottom: 30%;
 	overflow: hidden;
 }
 
 #showcase {
 	position: absolute;
-	left: 0px;
-	right: 30%;
-	top: 70%;
-	bottom: 0px;
 	background: lightgray;
 }
 
@@ -45,10 +37,6 @@ a, a:visited {
 
 #finder {
 	position: absolute;
-	left: 70%;
-	right: 0px;
-	top: 70%;
-	bottom: 0px;
 	background: darkgray;
 }
 
@@ -56,11 +44,28 @@ a, a:visited {
 	display: inline-block;
 	padding: 10px;
 	margin: 10px;
-	border: 2px solid black;
+	font-size: 160%;
 }
 
+#finder_lists>div>div>a:hover,
 #finder_tabs>div:hover {
 	background: gray;
+}
+
+#finder_tabs {
+	position: absolute;
+	left: 0px;
+	right: 0px;
+	top: 0px;
+	bottom: 50px;
+}
+
+#finder_lists {
+	position: absolute;
+	left: 0px;
+	right: 0px;
+	top: 50px;
+	bottom: 0px;
 }
 
 #finder_lists>div>div>a {
