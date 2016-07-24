@@ -13,7 +13,7 @@ copies[jsc] = ["config.js", "data.js"]
 
 syms = {
 	"js": ["pay.js", "results.js", "store.js"],
-	"css": ["store.css"],
+	"css": ["store.css", "layouts"],
 	"html": ["results.html", "checkout.html"]
 }
 syms[jsc] = ["cart.js", "search.js", "util.js"]
