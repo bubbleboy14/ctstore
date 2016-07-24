@@ -4,6 +4,7 @@ CT.require("core.search");
 CT.require("core.data");
 CT.require("core.cart");
 CT.require("core.util");
+CT.dom.addStyle(null, "/css/layouts/" + core.config.landing.layout + ".css");
 
 CT.onload(function() {
 	core.util.header();
@@ -35,8 +36,8 @@ CT.onload(function() {
 			}), "div", "h1 inline-block");
 		}), "div", "w1 h1 nowrap scrollx"));
 
-	var tabs = CT.dom.node(null, "center", "h1-5", "finder_tabs"),
-		lists = CT.dom.node(null, null, "h4-5 scrolly", "finder_lists");
+	var tabs = CT.dom.node(null, "center", null, "finder_tabs"),
+		lists = CT.dom.node(null, null, "scrolly", "finder_lists");
 	CT.panel.simple(core.config.landing.finder, null, tabs, lists);
 	core.config.landing.finder.forEach(function(category) {
 		CT.dom.setContent(CT.dom.id("sbpanel" + category, true),
