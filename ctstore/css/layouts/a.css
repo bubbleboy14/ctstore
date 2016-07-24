@@ -1,0 +1,21 @@
+/* landing */
+#slider {
+	left: 0px;
+	right: 30%;
+	top: 100px;
+	bottom: 30%;
+}
+
+#showcase {
+	left: 0px;
+	right: 0px;
+	top: 70%;
+	bottom: 0px;
+}
+
+#finder {
+	left: 70%;
+	right: 0px;
+	top: 100px;
+	bottom: 30%;
+}
