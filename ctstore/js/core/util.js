@@ -5,7 +5,7 @@ core.util = {
 			CT.dom.link(core.config.name, null, "/", "biggerest bold block nodecoration")
 		];
 		if (location.pathname != "/checkout.html")
-			nodes.push(CT.dom.link("Shopping Cart", core.cart.modal, null, "right"));
+			nodes.push(CT.dom.link("Shopping Cart", core.cart.modal, null, "right up10"));
 		CT.dom.setContent(CT.dom.id("header"), nodes);
 	}
 };
