@@ -31,10 +31,10 @@ CT.onload(function() {
 			return CT.dom.node(CT.dom.link([
 				CT.dom.node(null, "div", "w1 h4-5 round",
 					null, null, { backgroundImage: "url(" + d.img + ")" }),
-				CT.dom.node(d.name, "div", "big bold")
+				CT.dom.node(d.name, "div", "big h1-5 bold nonowrap")
 			], function() {
 				core.search.results(d.label);
-			}), "div", "h1 inline-block");
+			}), "div", "h9-10 m5 inline-block vtop hoverglow");
 		}), "div", "w1 h1 nowrap scrollx"));
 
 	var tabs = CT.dom.node(null, "center", null, "finder_tabs"),

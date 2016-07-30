@@ -31,6 +31,10 @@ a, a:visited {
 	background: lightgray;
 }
 
+#showcase div {
+	background-size: cover;
+}
+
 #showcase>div>div {
 	width: 200px;
 	padding: 10px;
