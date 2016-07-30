@@ -9,6 +9,7 @@ CT.dom.addStyle(null, "/css/layouts/" + core.config.landing.layout + ".css");
 CT.onload(function() {
 	core.util.header();
 	new CT.slider.Slider({
+		pan: false,
 		navButtons: false,
 		parent: CT.dom.id("slider"),
 		frames: core.data.product.map(function(d) {
