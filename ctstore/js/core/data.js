@@ -16,7 +16,7 @@ if (core.config.data == "json") {
 	core.data.all = [];
 	core.config.search.data.forEach(function(modelName) {
 		CT.db.get(modelName, function(data) {
-			core.data[modelName] = data;
+			core.data[modelName] = CT.data.alpha(data, "name");
 			core.data.all = core.data.all.concat(data);
 		}, 1000, null, null, null, true);
 	});
