@@ -16,6 +16,7 @@ a, a:visited {
 	padding: 30px;
 	border-radius: 0px 0px 7px 7px;
 	background: gray;
+	overflow: hidden;
 	z-index: 10000;
 }
 
