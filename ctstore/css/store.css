@@ -33,6 +33,7 @@ a, a:visited {
 
 #showcase div {
 	background-size: cover;
+	background-position: center;
 }
 
 #showcase>div>div {
