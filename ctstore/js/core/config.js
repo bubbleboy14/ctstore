@@ -2,12 +2,13 @@ core.config = {
 	name: "CTStore E-Commerce Application",
 	data: "json",
 	search: {
+		layout: "slideshow", // slideshow|gallery
 		data: ["product"],
 		buttons: [],
 		blurs: [ "what are you looking for?", "what ails you?", "enter search terms" ]
 	},
 	landing: {
-		layout: "a",
+		layout: "a", // a|b|c
 		showcase: ["product"],
 		finder: ["product"]
 	},
