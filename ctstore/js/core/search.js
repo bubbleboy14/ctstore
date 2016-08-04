@@ -49,26 +49,13 @@ core.search = {
 			return [
 				CT.dom.node(d.label, "div", "bigger bold"),
 				CT.dom.grid(d.frames.map(function(f) {
-					var content = [
-						CT.dom.node(f.name, "div", "biggest"),
-						CT.dom.node(f.description)
-					], newd = {
+					return {
 						label: f.label,
 						img: f.img,
 						onclick: function() {
-							(new CT.modal.Modal({
-								transition: "slide",
-								content: content
-							})).show();
+							core.util.modal(f, d.label);
 						}
 					};
-					if (d.label == "product") {
-						content.push(CT.dom.button("Add to Cart", function() {
-							core.cart.increase(f);
-							alert("ok!");
-						}, "right"));
-					}
-					return newd;
 				}), null, null, 250)
 			];
 		}), "div", "full scrolly"));
