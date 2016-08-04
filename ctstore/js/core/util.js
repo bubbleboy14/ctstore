@@ -10,5 +10,21 @@ core.util = {
 		if (location.pathname != "/checkout.html")
 			nodes[0].firstChild.appendChild(CT.dom.link("Shopping Cart", core.cart.modal, null, "block pv10"));
 		CT.dom.setContent(CT.dom.id("header"), CT.dom.node(nodes, "div", "h1 w1"));
+	},
+	modal: function(d, dtype) {
+		var content = [
+			CT.dom.node(d.name, "div", "biggest"),
+			CT.dom.node(d.description)
+		];
+		if (dtype == "product") {
+			content.push(CT.dom.button("Add to Cart", function() {
+				core.cart.increase(d);
+				alert("ok!");
+			}, "right"));
+		}
+		(new CT.modal.Modal({
+			transition: "slide",
+			content: content
+		})).show();
 	}
 };
