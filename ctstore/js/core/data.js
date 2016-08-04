@@ -24,3 +24,21 @@ if (core.config.data == "json") {
 		d.img = d.img || d.image || core.config.img_fallback;
 	});
 }
+
+CT.data.addSet(core.data.all);
+core.data.all.forEach(function(d) {
+	core.config.search.buttons.forEach(function(cat) {
+		if (d[cat]) {
+			d.buttons = d.buttons || {};
+			d[cat].forEach(function(related) {
+				d.buttons[CT.data.get(related).name] = core.search.link(related);
+			});
+		}
+	});
+	if (d.modelName == "product") {
+		d.buttons["Add to Cart"] = function() {
+			core.cart.increase(d);
+			alert("ok!");
+		}
+	}
+});
