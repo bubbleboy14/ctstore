@@ -34,14 +34,52 @@ core.search = {
 		core.search._words = words;
 		return core.data[category].filter(core.search._filter);
 	},
+	slideshow: function(data) {
+		new CT.slider.Slider({
+			parent: CT.dom.id("results"),
+			mode: "chunk",
+			subMode: "profile",
+			arrowPosition: "top",
+			bubblePosition: "top",
+			frames: data
+		});
+	},
+	gallery: function(data) {
+		CT.dom.setContent(CT.dom.id("results"), CT.dom.node(data.map(function(d) {
+			return [
+				CT.dom.node(d.label, "div", "bigger bold"),
+				CT.dom.grid(d.frames.map(function(f) {
+					var content = [
+						CT.dom.node(f.name, "div", "biggest"),
+						CT.dom.node(f.description)
+					], newd = {
+						label: f.label,
+						img: f.img,
+						onclick: function() {
+							(new CT.modal.Modal({
+								transition: "slide",
+								content: content
+							})).show();
+						}
+					};
+					if (d.label == "product") {
+						content.push(CT.dom.button("Add to Cart", function() {
+							core.cart.increase(f);
+							alert("ok!");
+						}, "right"));
+					}
+					return newd;
+				}), null, null, 250)
+			];
+		}), "div", "full scrolly"));
+	},
 	results: function(searchwords) {
 		if (location.pathname != "/results.html") {
 			location = "/results.html#" + escape(searchwords);
 			return;
 		}
-		var rnode = CT.dom.id("results"), data = [],
-			words = searchwords.toLowerCase().split(" ");
-		CT.dom.setContent(rnode, "searching...");
+		var data = [], words = searchwords.toLowerCase().split(" ");
+		CT.dom.setContent(CT.dom.id("results"), "searching...");
 		core.config.search.data.forEach(function(category) {
 			var frames = core.search.frames(category, words);
 			if (frames.length) data.push({
@@ -49,13 +87,6 @@ core.search = {
 				frames: frames
 			});
 		});
-		new CT.slider.Slider({
-			parent: rnode,
-			mode: "chunk",
-			subMode: "profile",
-			arrowPosition: "top",
-			bubblePosition: "top",
-			frames: data
-		});
+		core.search[core.config.search.layout](data);
 	}
 };
