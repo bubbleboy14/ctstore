@@ -31,7 +31,7 @@ CT.onload(function() {
 	CT.dom.setContent(CT.dom.id("showcase"),
 		CT.dom.node(core.data[core.config.landing.showcase].map(function(d) {
 			return CT.dom.node(CT.dom.link([
-				CT.dom.node(null, "div", "w1 h4-5 round",
+				CT.dom.node(null, "div", "w1 h4-5 rounder",
 					null, null, { backgroundImage: "url(" + d.img + ")" }),
 				CT.dom.node(d.name, "div", "big h1-5 bold nonowrap")
 			], function() {
