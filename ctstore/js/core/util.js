@@ -4,7 +4,8 @@ core.util = {
 			CT.dom.node(CT.dom.node([ core.search.field() ], "div",
 				"right h1", null, null, { padding: "30px" }),
 				"div", "abs top0 bottom0 right0 w1-2"),
-			CT.dom.link(core.config.logo || core.config.name, null, "/",
+			CT.dom.link(core.config.header_logo || core.config.logo
+				|| core.config.name, null, "/",
 				"w1-2 biggest bold block nodecoration abs top0 bottom0 left0")
 		];
 		if (location.pathname != "/checkout.html")
