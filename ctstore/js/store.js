@@ -16,6 +16,9 @@ CT.onload(function() {
 				title: d.label,
 				blurb: d.description,
 				img: d.img,
+				onclick: function() {
+					core.util.modal(d, "product");
+				},
 				tab: {
 					content: CT.dom.link("Read More!",
 						core.search.link(d.label),
