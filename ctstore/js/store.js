@@ -4,7 +4,7 @@ CT.require("core.search");
 CT.require("core.data");
 CT.require("core.cart");
 CT.require("core.util");
-CT.dom.addStyle(null, "/css/layouts/" + core.config.landing.layout + ".css");
+CT.dom.addStyle(null, "/css/layouts/landing/" + core.config.landing.layout + ".css");
 
 CT.onload(function() {
 	core.util.header();

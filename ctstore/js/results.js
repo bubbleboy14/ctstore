@@ -4,6 +4,7 @@ CT.require("core.search");
 CT.require("core.data");
 CT.require("core.cart");
 CT.require("core.util");
+CT.dom.addStyle(null, "/css/layouts/results/" + core.config.search.layout + ".css");
 
 CT.onload(function() {
 	core.util.header();
