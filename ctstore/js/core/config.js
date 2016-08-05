@@ -12,5 +12,14 @@ core.config = {
 		showcase: ["product"],
 		finder: ["product"]
 	},
+	footer: {
+		enabled: false,
+		bottom: null,
+		links: [],
+		contact: {
+			email: null,
+			phone: null
+		}
+	},
 	img_fallback: "https://skirtingboardsdirect.com/wp-content/uploads/2014/12/Fallback-Image-400x400.png"
 };

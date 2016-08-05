@@ -8,6 +8,7 @@ CT.dom.addStyle(null, "/css/layouts/landing/" + core.config.landing.layout + ".c
 
 CT.onload(function() {
 	core.util.header();
+	core.util.footer();
 	new CT.slider.Slider({
 		navButtons: false,
 		parent: CT.dom.id("slider"),
