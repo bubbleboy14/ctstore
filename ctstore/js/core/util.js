@@ -48,7 +48,7 @@ core.util = {
 			content.push(CT.dom.button("Add to Cart", function() {
 				core.cart.increase(d);
 				alert("ok!");
-			}, "right"));
+			}, "w1 bigger padded mv5"));
 		}
 		(new CT.modal.Modal({
 			transition: "slide",
