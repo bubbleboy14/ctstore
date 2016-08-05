@@ -8,6 +8,7 @@ CT.dom.addStyle(null, "/css/layouts/results/" + core.config.search.layout + ".cs
 
 CT.onload(function() {
 	core.util.header();
+	core.util.footer();
 	CT.dom.setContent(CT.dom.id("results"), "search away!");
 	if (location.hash)
 		core.search.results(unescape(location.hash.slice(1)));
