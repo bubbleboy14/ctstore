@@ -133,3 +133,7 @@ a, a:visited {
 	border: 1px solid black;
 	background: darkgray;
 }
+
+.footered #results, .footered #items, .footered #payment {
+	bottom: 120px;
+}
