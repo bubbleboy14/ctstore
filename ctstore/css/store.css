@@ -20,6 +20,25 @@ a, a:visited {
 	z-index: 10000;
 }
 
+#footer {
+	position: absolute;
+	bottom: 0px;
+	right: 0px;
+	left: 0px;
+	height: 120px;
+}
+
+.bline {
+	position: absolute;
+	bottom: 0px;
+	right: 0px;
+	left: 0px;
+	height: 20px;
+	border: 1px solid gray;
+	margin: 2px;
+	line-height: 1.5;
+}
+
 /* landing */
 #slider {
 	position: absolute;

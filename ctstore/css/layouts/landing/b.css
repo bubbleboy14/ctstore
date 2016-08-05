@@ -19,3 +19,7 @@
 	top: 70%;
 	bottom: 0px;
 }
+
+.footered #showcase, .footered #finder {
+	bottom: 120px;
+}
