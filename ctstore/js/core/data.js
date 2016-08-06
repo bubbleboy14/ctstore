@@ -27,11 +27,16 @@ if (core.config.data == "json") {
 
 CT.data.addSet(core.data.all);
 core.data.all.forEach(function(d) {
+	d._brefs = [];
+});
+core.data.all.forEach(function(d) {
 	core.config.search.buttons.forEach(function(cat) {
 		if (d[cat]) {
 			d.buttons = d.buttons || {};
 			d[cat].forEach(function(related) {
-				d.buttons[CT.data.get(related).name] = core.search.link(related);
+				var relative = CT.data.get(related);
+				relative._brefs.push(d.key);
+				d.buttons[relative.name] = core.search.link(related);
 			});
 		}
 	});

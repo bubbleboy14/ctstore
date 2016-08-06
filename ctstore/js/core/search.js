@@ -26,6 +26,10 @@ core.search = {
 						if (s.label.indexOf(w) != -1 || s.description.indexOf(w) != -1)
 							return true;
 					}
+				} else for (var j = 0; j < d._brefs.length; j++) {
+					var br = CT.data.get(d._brefs[j]);
+					if (br.label.indexOf(w) != -1 || br.description.indexOf(w) != -1)
+						return true;
 				}
 			}
 		}
