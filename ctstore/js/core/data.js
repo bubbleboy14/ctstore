@@ -28,6 +28,7 @@ if (core.config.data == "json") {
 CT.data.addSet(core.data.all);
 core.data.all.forEach(function(d) {
 	d._brefs = [];
+	d._search = (d.label + " " + d.description).toLowerCase().split(" ");
 });
 core.data.all.forEach(function(d) {
 	core.config.search.buttons.forEach(function(cat) {

@@ -16,22 +16,17 @@ core.search = {
 	_filter: function(d) {
 		for (var i = 0; i < core.search._words.length; i++) {
 			var w = core.search._words[i];
-			for (var prop in d) {
-				if (["label", "description"].indexOf(prop) != -1) {
-					if (d[prop].indexOf(w) != -1)
+			if (d._search.indexOf(w) != -1)
+				return true;
+			for (var k = 0; k < core.config.search.buttons; k++) {
+				var pval = d[core.config.search.buttons[k]] || [];
+				for (var j = 0; j < pval.length; j++)
+					if (CT.data.get(pval[j])._search.indexOf(w) != -1)
 						return true;
-				} else if (core.config.search.buttons.indexOf(prop) != -1) {
-					for (var j = 0; j < d[prop].length; j++) {
-						var s = CT.data.get(d[prop][j]);
-						if (s.label.indexOf(w) != -1 || s.description.indexOf(w) != -1)
-							return true;
-					}
-				} else for (var j = 0; j < d._brefs.length; j++) {
-					var br = CT.data.get(d._brefs[j]);
-					if (br.label.indexOf(w) != -1 || br.description.indexOf(w) != -1)
-						return true;
-				}
 			}
+			for (var j = 0; j < d._brefs.length; j++)
+				if (CT.data.get(d._brefs[j])._search.indexOf(w) != -1)
+					return true;
 		}
 	},
 	frames: function(category, words) {
