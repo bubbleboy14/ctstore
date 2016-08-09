@@ -17,3 +17,5 @@ syms = {
 	"html": ["results.html", "checkout.html"]
 }
 syms[jsc] = ["cart.js", "search.js", "util.js"]
+
+requires = ["ctuser"]
