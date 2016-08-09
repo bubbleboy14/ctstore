@@ -7,27 +7,6 @@ a, a:visited {
 	font-weight: bold;
 }
 
-#header {
-	position: absolute;
-	left: 0px;
-	right: 0px;
-	top: 0px;
-	height: 45px;
-	padding: 30px;
-	border-radius: 0px 0px 7px 7px;
-	background: gray;
-	overflow: hidden;
-	z-index: 10000;
-}
-
-#footer {
-	position: absolute;
-	bottom: 0px;
-	right: 0px;
-	left: 0px;
-	height: 120px;
-}
-
 .bline {
 	position: absolute;
 	bottom: 0px;
