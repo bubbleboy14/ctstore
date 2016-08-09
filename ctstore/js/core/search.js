@@ -47,7 +47,7 @@ core.search = {
 		CT.dom.setContent(CT.dom.id("results"), CT.dom.node(data.map(function(d) {
 			return [
 				CT.dom.node(d.label, "div", "bigger bold"),
-				CT.dom.grid(d.frames.map(function(f) {
+				CT.layout.grid(d.frames.map(function(f) {
 					return {
 						label: f.label,
 						img: f.img,
