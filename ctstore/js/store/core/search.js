@@ -1,10 +1,10 @@
 store.core.search = {
 	field: function() {
 		var n = CT.dom.smartField(store.core.search.results,
-			null, null, null, null, store.core.config.search.blurs);
-		store.core.data && new CT.autocomplete.Guesser({ // checkout page skips
+			null, null, null, null, store.config.search.blurs);
+		store.data && new CT.autocomplete.Guesser({ // checkout page skips
 			input: n,
-			data: store.core.data.all
+			data: store.data.all
 		});
 		return n;
 	},
@@ -18,8 +18,8 @@ store.core.search = {
 			var w = store.core.search._words[i];
 			if (d._search.indexOf(w) != -1)
 				return true;
-			for (var k = 0; k < store.core.config.search.buttons; k++) {
-				var pval = d[store.core.config.search.buttons[k]] || [];
+			for (var k = 0; k < store.config.search.buttons; k++) {
+				var pval = d[store.config.search.buttons[k]] || [];
 				for (var j = 0; j < pval.length; j++)
 					if (CT.data.get(pval[j])._search.indexOf(w) != -1)
 						return true;
@@ -31,7 +31,7 @@ store.core.search = {
 	},
 	frames: function(category, words) {
 		store.core.search._words = words;
-		return store.core.data[category].filter(store.core.search._filter);
+		return store.data[category].filter(store.core.search._filter);
 	},
 	slideshow: function(data) {
 		new CT.slider.Slider({
@@ -66,13 +66,13 @@ store.core.search = {
 		}
 		var data = [], words = searchwords.toLowerCase().split(" ");
 		CT.dom.setContent(CT.dom.id("results"), "searching...");
-		store.core.config.search.data.forEach(function(category) {
+		store.config.search.data.forEach(function(category) {
 			var frames = store.core.search.frames(category, words);
 			if (frames.length) data.push({
 				label: category,
 				frames: frames
 			});
 		});
-		store.core.search[store.core.config.search.layout](data);
+		store.core.search[store.config.search.layout](data);
 	}
 };

@@ -1,5 +1,5 @@
-if (store.core.config.data == "json") {
-	store.core.data.all = store.core.data.product = [
+if (store.config.data == "json") {
+	store.data.all = store.data.product = [
 		{
 			name: "A Product",
 			label: "a product",
@@ -13,25 +13,25 @@ if (store.core.config.data == "json") {
 		}
 	];
 } else { // db
-	store.core.data.all = [];
-	store.core.config.search.data.forEach(function(modelName) {
+	store.data.all = [];
+	store.config.search.data.forEach(function(modelName) {
 		CT.db.get(modelName, function(data) {
-			store.core.data[modelName] = CT.data.alpha(data, "name");
-			store.core.data.all = store.core.data.all.concat(data);
+			store.data[modelName] = CT.data.alpha(data, "name");
+			store.data.all = store.data.all.concat(data);
 		}, 1000, null, null, null, true);
 	});
-	store.core.data.all.forEach(function(d) {
-		d.img = d.img || d.image || store.core.config.img_fallback;
+	store.data.all.forEach(function(d) {
+		d.img = d.img || d.image || store.config.img_fallback;
 	});
 }
 
-CT.data.addSet(store.core.data.all);
-store.core.data.all.forEach(function(d) {
+CT.data.addSet(store.data.all);
+store.data.all.forEach(function(d) {
 	d._brefs = [];
 	d._search = (d.label + " " + d.description).toLowerCase().split(" ");
 });
-store.core.data.all.forEach(function(d) {
-	store.core.config.search.buttons.forEach(function(cat) {
+store.data.all.forEach(function(d) {
+	store.config.search.buttons.forEach(function(cat) {
 		if (d[cat]) {
 			d.buttons = d.buttons || {};
 			d[cat].forEach(function(related) {
