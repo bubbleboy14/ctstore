@@ -1,24 +1,24 @@
-core.cart = {
+store.core.cart = {
 	_items: {},
 	increase: function(d) {
-		if (!(d.label in core.cart._items)) {
-			core.cart._items[d.label] = d;
+		if (!(d.label in store.core.cart._items)) {
+			store.core.cart._items[d.label] = d;
 			d.count = 0;
 		}
-		core.cart._items[d.label].count += 1;
+		store.core.cart._items[d.label].count += 1;
 	},
 	decrease: function(d) {
-		core.cart._items[d.label].count -= 1;
-		if (!core.cart._items[d.label].count)
-			delete core.cart._items[d.label];
+		store.core.cart._items[d.label].count -= 1;
+		if (!store.core.cart._items[d.label].count)
+			delete store.core.cart._items[d.label];
 	},
 	list: function(d) {
-		return Object.values(core.cart._items).map(function(d) {
+		return Object.values(store.core.cart._items).map(function(d) {
 			var cnode = CT.dom.node(d.count, "b");
 			return [
 				CT.dom.node([
 					CT.dom.button("-", function () {
-						core.cart.decrease(d);
+						store.core.cart.decrease(d);
 						if (d.count)
 							cnode.innerHTML = d.count;
 						else
@@ -28,7 +28,7 @@ core.cart = {
 					cnode,
 					CT.dom.pad(),
 					CT.dom.button("+", function () {
-						core.cart.increase(d);
+						store.core.cart.increase(d);
 						cnode.innerHTML = d.count;
 					})
 				], "div", "right padded"),
@@ -37,14 +37,14 @@ core.cart = {
 		});
 	},
 	load: function() {
-		core.cart._items = CT.storage.get("cart");
+		store.core.cart._items = CT.storage.get("cart");
 	},
 	checkout: function() {
-		CT.storage.set("cart", core.cart._items);
+		CT.storage.set("cart", store.core.cart._items);
 		location = "/checkout.html";
 	},
 	modal: function() {
-		var items = core.cart.list();
+		var items = store.core.cart.list();
 		(new CT.modal.Modal({
 			transition: "slide",
 			className: "w1-3 basicpopup above",
@@ -52,7 +52,7 @@ core.cart = {
 				CT.dom.node("Shopping Cart", "div", "big padded"),
 				items.length ? [
 					items,
-					CT.dom.button("Checkout", core.cart.checkout),
+					CT.dom.button("Checkout", store.core.cart.checkout),
 				] : CT.dom.node("empty!", "center")
 			]
 		})).show();

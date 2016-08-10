@@ -1,8 +1,9 @@
 import os
 
-jsc = os.path.join("js", "core")
+jss = os.path.join("js", "store")
+jsc = os.path.join(jss, "core")
 
-dirs = [jsc]
+dirs = [jss, jsc]
 
 copies = {
 	".": ["model.py"],
@@ -12,10 +13,10 @@ copies = {
 copies[jsc] = ["config.js", "data.js"]
 
 syms = {
-	"js": ["pay.js", "results.js", "store.js"],
 	"css": ["store.css", "layouts"],
 	"html": ["results.html", "checkout.html"]
 }
+syms[jss] = ["pay.js", "results.js", "home.js"]
 syms[jsc] = ["cart.js", "search.js", "util.js"]
 
 requires = ["ctuser"]

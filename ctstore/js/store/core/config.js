@@ -1,4 +1,4 @@
-core.config = {
+store.core.config = {
 	name: "CTStore E-Commerce Application",
 	data: "json",
 	search: {
