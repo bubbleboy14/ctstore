@@ -60,8 +60,8 @@ store.core.search = {
 		}), "div", "full scrolly"));
 	},
 	results: function(searchwords) {
-		if (location.pathname != "/results.html") {
-			location = "/results.html#" + escape(searchwords);
+		if (location.pathname != "/store/results.html") {
+			location = "/store/results.html#" + escape(searchwords);
 			return;
 		}
 		var data = [], words = searchwords.toLowerCase().split(" ");

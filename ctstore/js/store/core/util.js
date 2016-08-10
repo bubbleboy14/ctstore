@@ -1,7 +1,7 @@
 store.core.util = {
 	header: function() {
 		var rights = [ store.core.search.field() ];
-		if (location.pathname != "/checkout.html")
+		if (location.pathname != "/store/checkout.html")
 			rights.push(CT.dom.link("Shopping Cart", store.core.cart.modal, null, "block pv10"));
 		CT.dom.setAutoparse(true);
 		CT.layout.header({

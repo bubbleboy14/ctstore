@@ -14,10 +14,8 @@ copies[jss] = ["config.js", "data.js"]
 syms = {
 	"js": ["store.js"],
 	"css": ["store.css", "layouts"],
-	"html": ["results.html", "checkout.html"]
+	"html": ["store"]
 }
 syms[jss] = ["core.js", "core", "pages"]
-#syms[jss] = ["pay.js", "results.js", "home.js"]
-#syms[jsc] = ["cart.js", "search.js", "util.js"]
 
 requires = ["ctuser"]

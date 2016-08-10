@@ -41,7 +41,7 @@ store.core.cart = {
 	},
 	checkout: function() {
 		CT.storage.set("cart", store.core.cart._items);
-		location = "/checkout.html";
+		location = "/store/checkout.html";
 	},
 	modal: function() {
 		var items = store.core.cart.list();
