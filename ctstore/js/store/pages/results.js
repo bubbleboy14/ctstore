@@ -1,6 +1,7 @@
 CT.require("CT.all");
+CT.require("core.config");
 CT.require("store");
-CT.dom.addStyle(null, "/css/layouts/results/" + store.config.search.layout + ".css");
+CT.dom.addStyle(null, "/css/layouts/results/" + core.config.ctstore.search.layout + ".css");
 
 CT.onload(function() {
 	store.core.util.header();

@@ -5,15 +5,15 @@ store.core.util = {
 			rights.push(CT.dom.link("Shopping Cart", store.core.cart.modal, null, "block pv10"));
 		CT.dom.setAutoparse(true);
 		CT.layout.header({
-			logo: store.config.header_logo || store.config.logo || store.config.name,
+			logo: core.config.ctstore.header_logo || core.config.ctstore.logo || core.config.ctstore.name,
 			right: rights,
 			centerLogo: false
 		});
 	},
 	footer: function() {
-		var f = store.config.footer;
+		var f = core.config.ctstore.footer;
 		f.enabled && CT.layout.footer({
-			logo: store.config.logo || store.config.name,
+			logo: core.config.ctstore.logo || core.config.ctstore.name,
 			links: f.links,
 			contact: {
 				email: f.contact.email,

@@ -1,4 +1,4 @@
-if (store.config.data == "json") {
+if (core.config.ctstore.data == "json") {
 	store.data.all = store.data.product = [
 		{
 			name: "A Product",
@@ -14,14 +14,14 @@ if (store.config.data == "json") {
 	];
 } else { // db
 	store.data.all = [];
-	store.config.search.data.forEach(function(modelName) {
+	core.config.ctstore.search.data.forEach(function(modelName) {
 		CT.db.get(modelName, function(data) {
 			store.data[modelName] = CT.data.alpha(data, "name");
 			store.data.all = store.data.all.concat(data);
 		}, 1000, null, null, null, true);
 	});
 	store.data.all.forEach(function(d) {
-		d.img = d.img || d.image || store.config.img_fallback;
+		d.img = d.img || d.image || core.config.ctstore.img_fallback;
 	});
 }
 
@@ -31,7 +31,7 @@ store.data.all.forEach(function(d) {
 	d._search = (d.label + " " + d.description).toLowerCase().split(" ");
 });
 store.data.all.forEach(function(d) {
-	store.config.search.buttons.forEach(function(cat) {
+	core.config.ctstore.search.buttons.forEach(function(cat) {
 		if (d[cat]) {
 			d.buttons = d.buttons || {};
 			d[cat].forEach(function(related) {

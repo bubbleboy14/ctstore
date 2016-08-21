@@ -9,7 +9,7 @@ copies = {
 	"css": ["custom.css"],
 	"html": ["index.html"]
 }
-copies[jss] = ["config.js", "data.js"]
+copies[jss] = ["data.js"]
 
 syms = {
 	"js": ["store.js"],

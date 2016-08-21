@@ -1,6 +1,7 @@
 CT.require("CT.all");
+CT.require("core.config");
 CT.require("store");
-CT.dom.addStyle(null, "/css/layouts/landing/" + store.config.landing.layout + ".css");
+CT.dom.addStyle(null, "/css/layouts/landing/" + core.config.ctstore.landing.layout + ".css");
 
 CT.onload(function() {
 	store.core.util.header();
@@ -26,7 +27,7 @@ CT.onload(function() {
 		})
 	});
 	CT.dom.setContent(CT.dom.id("showcase"),
-		CT.dom.node(store.data[store.config.landing.showcase].map(function(d) {
+		CT.dom.node(store.data[core.config.ctstore.landing.showcase].map(function(d) {
 			return CT.dom.node(CT.dom.link([
 				CT.dom.node(null, "div", "w1 h4-5 rounder",
 					null, null, { backgroundImage: "url(" + d.img + ")" }),
@@ -38,8 +39,8 @@ CT.onload(function() {
 
 	var tabs = CT.dom.node(null, "center", null, "finder_tabs"),
 		lists = CT.dom.node(null, null, "scrolly", "finder_lists");
-	CT.panel.simple(store.config.landing.finder, null, tabs, lists);
-	store.config.landing.finder.forEach(function(category) {
+	CT.panel.simple(core.config.ctstore.landing.finder, null, tabs, lists);
+	core.config.ctstore.landing.finder.forEach(function(category) {
 		CT.dom.setContent(CT.dom.id("sbpanel" + category, true),
 			store.data[category].map(function(item) {
 				return CT.dom.link(item.label, store.core.search.link(item.label));

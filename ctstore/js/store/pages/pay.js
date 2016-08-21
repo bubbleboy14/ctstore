@@ -1,6 +1,6 @@
 CT.require("CT.all");
 CT.require("CT.pay");
-CT.require("store.config");
+CT.require("core.config");
 CT.require("store.core.search");
 CT.require("store.core.cart");
 CT.require("store.core.util");
