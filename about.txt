@@ -1,0 +1,1 @@
+This package enables the developer to create a basic ecommerce website with nothing but configuration.
