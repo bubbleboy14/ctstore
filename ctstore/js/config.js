@@ -8,7 +8,7 @@
 		"blurs": [ "what are you looking for?", "what ails you?", "enter search terms" ]
 	},
 	"landing": {
-		"layout": "a", // a|b|c
+		"layout": "a",
 		"showcase": ["product"],
 		"finder": ["product"]
 	},
