@@ -3,13 +3,13 @@
 	left: 0px;
 	right: 30%;
 	top: 100px;
-	bottom: 30%;
+	bottom: 320px;
 }
 
 #showcase {
 	left: 0px;
 	right: 0px;
-	top: 70%;
+	height: 220px;
 	bottom: 0px;
 }
 
@@ -17,9 +17,13 @@
 	left: 70%;
 	right: 0px;
 	top: 100px;
-	bottom: 30%;
+	bottom: 320px;
+}
+
+#ctfooter {
+	height: 100px;
 }
 
 .footered #showcase {
-	bottom: 120px;
+	bottom: 100px;
 }
