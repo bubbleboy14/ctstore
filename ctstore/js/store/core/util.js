@@ -12,14 +12,9 @@ store.core.util = {
 	},
 	footer: function() {
 		var f = core.config.ctstore.footer;
-		f.enabled && CT.layout.footer({
-			logo: core.config.ctstore.logo || core.config.ctstore.name,
-			links: f.links,
-			contact: {
-				email: f.contact.email,
-				phone: f.contact.phone
-			}
-		});
+		f.enabled && CT.layout.footer(CT.merge(f, {
+			logo: core.config.ctstore.logo || core.config.ctstore.name
+		}));
 	},
 	modal: function(d, dtype) {
 		var content = [
