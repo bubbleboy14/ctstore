@@ -3,14 +3,14 @@
 	left: 0px;
 	right: 0px;
 	top: 200px;
-	bottom: 30%;
+	bottom: 300px;
 }
 
 #showcase {
 	left: 0px;
 	right: 0px;
-	top: 70%;
 	bottom: 0px;
+	height: 300px;
 }
 
 #finder {
