@@ -40,7 +40,8 @@ store.core.search = {
 			subMode: "profile",
 			arrowPosition: "top",
 			bubblePosition: "top",
-			frames: data
+			frames: data,
+			arrow: core.config.ctstore.search.arrow
 		});
 	},
 	gallery: function(data) {
