@@ -15,4 +15,10 @@ CT.onload(function() {
 	new CT.pay.Form({
 		parent: pnode
 	});
+	if (core.config.ctstore.pay_notice) {
+		(new CT.modal.Modal({
+			transition: "slide",
+			content: core.config.ctstore.pay_notice
+		})).show();
+	}
 });
