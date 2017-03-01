@@ -2,8 +2,9 @@
 #slider {
 	left: 0px;
 	right: 30%;
-	top: 100px;
-	bottom: 320px;
+	top: 0px;
+	bottom: 220px;
+	min-height: 60%;
 }
 
 #showcase {
@@ -11,19 +12,21 @@
 	right: 0px;
 	height: 220px;
 	bottom: 0px;
+	max-height: 40%;
 }
 
 #finder {
 	left: 70%;
 	right: 0px;
-	top: 100px;
-	bottom: 320px;
+	top: 0px;
+	bottom: 220px;
+	min-height: 60%;
 }
 
 #ctfooter {
 	height: 100px;
 }
 
-.footered #showcase {
+.footered #ctmain {
 	bottom: 100px;
 }

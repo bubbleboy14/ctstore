@@ -2,7 +2,7 @@
 #slider {
 	left: 0px;
 	right: 0px;
-	top: 200px;
+	top: 100px;
 	bottom: 300px;
 }
 
@@ -16,7 +16,7 @@
 #finder {
 	left: 0px;
 	right: 0px;
-	top: 100px;
+	top: 0px;
 	height: 100px;
 }
 
@@ -38,8 +38,4 @@
 #finder_lists>div>div>a {
 	display: inline-block;
 	padding: 5px;
-}
-
-.footered #showcase {
-	bottom: 120px;
 }
