@@ -5,7 +5,6 @@ jss = os.path.join("js", "store")
 dirs = [jss]
 
 copies = {
-	".": ["model.py"],
 	"css": ["custom.css"],
 	"html": ["index.html"]
 }
@@ -17,5 +16,8 @@ syms = {
 	"html": ["store"]
 }
 syms[jss] = ["core.js", "core", "pages"]
+model = {
+	"ctstore.model": ["*"]
+}
 
 requires = ["ctuser"]
