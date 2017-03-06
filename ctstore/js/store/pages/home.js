@@ -18,7 +18,7 @@ CT.onload(function() {
 					store.core.util.modal(d, "product");
 				},
 				tab: {
-					content: CT.dom.link("Read More!",
+					content: CT.dom.link(core.config.ctstore.landing.product_message,
 						store.core.search.link(d.label),
 						null, "big padded block pointer"),
 					origin: "topright"
