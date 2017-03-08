@@ -7,7 +7,7 @@ var loadAuction = function(auctions) {
 	if (!auctions.length)
 		return CT.dom.setContent("ctmain",
 			CT.dom.div("no auction today. come back soon!", "centered padded"));
-	var bid, izu, auction = auctions[0], inode = CT.dom.node(), bnode = CT.dom.node(),
+	var bid, izu, auction = auctions[0], inode = CT.dom.node(), bnode = CT.dom.div(null, "pb10"),
 		u = user.core.get(), loadBid = function(bidz) {
 			CT.dom.clear(bnode);
 			if (bidz.length) {
