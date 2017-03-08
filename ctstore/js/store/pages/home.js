@@ -1,11 +1,11 @@
 CT.require("CT.all");
 CT.require("core.config");
 CT.require("store");
+CT.require("user.core");
 CT.dom.addStyle(null, "/css/layouts/landing/" + core.config.ctstore.landing.layout + ".css");
 
 CT.onload(function() {
-	store.core.util.header();
-	store.core.util.footer();
+	CT.initCore();
 	new CT.slider.Slider({
 		navButtons: false,
 		parent: CT.dom.id("slider"),

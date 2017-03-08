@@ -1,6 +1,7 @@
 CT.require("CT.all");
 CT.require("core.config");
 CT.require("store");
+CT.require("user.core");
 
 var loadAuction = function(auctions) {
 	if (!auctions.length)
@@ -23,8 +24,7 @@ var loadAuction = function(auctions) {
 };
 
 CT.onload(function() {
-	store.core.util.header();
-	store.core.util.footer();
+	CT.initCore();
 	CT.db.get("auction", loadAuction, 1, 0, null, {
 		deadline: {
 			value: CT.parse.date2string(null, true),

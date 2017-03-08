@@ -1,21 +1,4 @@
 store.core.util = {
-	header: function() {
-		var rights = [ store.core.search.field() ];
-		if (location.pathname != "/store/checkout.html")
-			rights.push(CT.dom.link("Shopping Cart", store.core.cart.modal, null, "block pv10"));
-		CT.dom.setAutoparse(true);
-		CT.layout.header({
-			logo: core.config.ctstore.header_logo || core.config.ctstore.logo || core.config.ctstore.name,
-			right: rights,
-			centerLogo: false
-		});
-	},
-	footer: function() {
-		var f = core.config.ctstore.footer;
-		f.enabled && CT.layout.footer(CT.merge(f, {
-			logo: core.config.ctstore.logo || core.config.ctstore.name
-		}));
-	},
 	modal: function(d, dtype) {
 		var content = [
 			CT.dom.node(d.name, "div", "biggest"),
@@ -33,3 +16,15 @@ store.core.util = {
 		})).show();
 	}
 };
+
+var ccc = core.config.ctstore;
+if (core.config.footer && !core.config.footer.logo)
+	core.config.footer.logo = ccc.logo || ccc.name;
+core.config.header.right.push(store.core.search.field());
+if (!core.config.header.centerLogo)
+	core.config.header.centerLogo = false;
+if (!core.config.header.rightPadding)
+	core.config.header.rightPadding = "25px";
+if (location.pathname != "/store/checkout.html")
+	core.config.header.right.push(CT.dom.link("Shopping Cart",
+		store.core.cart.modal, null, "block pv10"));
