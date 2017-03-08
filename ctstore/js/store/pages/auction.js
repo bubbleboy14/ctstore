@@ -5,7 +5,8 @@ CT.require("user.core");
 
 var loadAuction = function(auctions) {
 	if (!auctions.length)
-		return CT.dom.setContent("ctmain", "no auction today. come back soon!");
+		return CT.dom.setContent("ctmain",
+			CT.dom.div("no auction today. come back soon!", "centered padded"));
 	var auction = auctions[0], inode = CT.dom.node();
 	CT.db.one(auction.item, function(item) {
 		CT.dom.setContent(inode, [
