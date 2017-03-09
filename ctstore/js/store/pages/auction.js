@@ -20,12 +20,13 @@ var loadAuction = function(auctions) {
 					prompt: "How much?",
 					cb: function(amount) {
 						var params = {
+							action: "bid",
 							amount: amount,
 							auction: auction.key,
 							user: u.key
 						};
 						CT.net.post({
-							path: "/_bid",
+							path: "/_store",
 							params: params,
 							cb: function() {
 								loadBid([params]);
