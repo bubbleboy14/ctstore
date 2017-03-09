@@ -5,13 +5,14 @@ jss = os.path.join("js", "store")
 dirs = [jss]
 
 copies = {
+	".": ["cron.yaml"],
 	"css": ["custom.css"],
 	"html": ["index.html"]
 }
 copies[jss] = ["data.js"]
 
 syms = {
-	".": ["_bid.py"],
+	".": ["_store.py", "cronscan.py"],
 	"js": ["store.js"],
 	"css": ["store.css", "layouts"],
 	"html": ["store"]
@@ -21,7 +22,8 @@ model = {
 	"ctstore.model": ["*"]
 }
 routes = {
-	"/_bid": "_bid.py"
+	"/_store": "_store.py",
+	"/cronscan": "cronscan.py"
 }
 
 requires = ["ctuser"]

@@ -14,8 +14,10 @@ class Item(db.ModelBase): # keeps it listed separately...
 class Auction(db.ModelBase):
 	item = db.ForeignKey(kind=Item)
 	deadline = db.DateTime()
+	settled = db.Boolean(default=False)
 
 class Bid(db.ModelBase):
 	auction = db.ForeignKey(kind=Auction)
 	user = db.ForeignKey(kind="user")
 	amount = db.Float()
+	emailed = db.Boolean(default=False)
