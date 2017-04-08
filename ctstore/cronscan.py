@@ -1,5 +1,5 @@
 from datetime import datetime, timedelta
-from cantools.web import respond, succeed, log, send_email
+from cantools.web import respond, succeed, log, send_mail
 from cantools import config
 from model import db, Auction, Bid
 
