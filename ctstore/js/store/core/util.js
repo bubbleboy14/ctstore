@@ -27,4 +27,4 @@ if (!core.config.header.rightPadding)
 	core.config.header.rightPadding = "25px";
 if (location.pathname != "/store/checkout.html")
 	core.config.header.right.push(CT.dom.link("Shopping Cart",
-		store.core.cart.modal, null, "block pv10"));
+		store.core.cart.modal, null, core.config.ctstore.cart_link_class || "block pv10"));
