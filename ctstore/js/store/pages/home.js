@@ -20,7 +20,7 @@ CT.onload(function() {
 				tab: {
 					content: CT.dom.link(core.config.ctstore.landing.product_message,
 						store.core.search.link(d.label),
-						null, "big padded block pointer"),
+						null, "biggerest padded block pointer"),
 					origin: "topright"
 				}
 			}
