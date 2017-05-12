@@ -1,4 +1,4 @@
-from datetime import datetime, timedelta
+from datetime import datetime
 from cantools.web import respond, succeed, log, send_mail
 from cantools import config
 from model import db, Auction, Bid
@@ -16,7 +16,7 @@ def response():
 	log("initiating cronscan", important=True)
 	az = Auction.query(
 		Auction.settled == False,
-		Auction.deadline <= datetime.datetime.now()
+		Auction.deadline <= datetime.now()
 	).all()
 	log("found %s active auctions"%(len(az),))
 	for a in az:
