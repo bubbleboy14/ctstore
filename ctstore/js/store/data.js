@@ -42,6 +42,7 @@ store.data.all.forEach(function(d) {
 		}
 	});
 	if (d.modelName == "product") {
+		d.buttons = d.buttons || {};
 		d.buttons["Add to Cart"] = function() {
 			store.core.cart.increase(d);
 			alert("ok!");
