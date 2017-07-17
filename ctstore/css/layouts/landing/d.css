@@ -1,0 +1,28 @@
+/* landing */
+#slider {
+	left: 0px;
+	right: 0px;
+	top: 0px;
+	bottom: 220px;
+	min-height: 60%;
+}
+
+#showcase {
+	left: 0px;
+	right: 0px;
+	height: 220px;
+	bottom: 0px;
+	max-height: 40%;
+}
+
+#finder {
+	display: none;
+}
+
+#ctfooter {
+	height: 100px;
+}
+
+.footered #ctmain {
+	bottom: 100px;
+}
