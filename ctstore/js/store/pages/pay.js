@@ -6,8 +6,7 @@ CT.require("store.core.cart");
 CT.require("store.core.util");
 
 CT.onload(function() {
-	store.core.util.header();
-	store.core.util.footer();
+	CT.initCore();
 	var pnode = CT.dom.node("", "div", "w1 h1");
 	store.core.cart.load();
 	CT.dom.setContent(CT.dom.id("items"), store.core.cart.list());
