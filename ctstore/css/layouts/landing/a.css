@@ -30,3 +30,26 @@
 .footered #ctmain {
 	bottom: 100px;
 }
+
+@media (max-width: 1440px) {
+	#finder_tabs {
+		font-size: 80%;
+	}
+	#finder_tabs div {
+		padding-left: 5px;
+		padding-right: 5px;
+		margin-left: 5px;
+		margin-right: 5px;
+	}
+}
+@media (max-width: 1130px) {
+	#finder_tabs div {
+		margin-left: 0px;
+		margin-right: 0px;
+	}
+}
+@media (max-width: 900px) {
+	#finder_tabs {
+		font-size: 60%;
+	}
+}
