@@ -6,7 +6,7 @@ CT.dom.addStyle(null, "/css/layouts/landing/" + core.config.ctstore.landing.layo
 
 CT.onload(function() {
 	CT.initCore();
-	new CT.slider.Slider({
+	new CT.slider.Slider(CT.merge({
 		navButtons: false,
 		parent: CT.dom.id("slider"),
 		frames: store.data.product.map(function(d) {
@@ -25,7 +25,7 @@ CT.onload(function() {
 				}
 			}
 		})
-	});
+	}, core.config.ctstore.landing.slider_opts));
 	CT.dom.setContent(CT.dom.id("showcase"),
 		CT.dom.node(store.data[core.config.ctstore.landing.showcase].map(function(d) {
 			return CT.dom.node(CT.dom.link([
