@@ -8,6 +8,7 @@
 		"blurs": [ "what are you looking for?", "what ails you?", "enter search terms" ]
 	},
 	"landing": {
+		"slider_opts": {},
 		"layout": "a",
 		"product_message": "Buy Now!",
 		"showcase": ["product"],
