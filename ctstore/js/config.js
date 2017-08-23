@@ -9,6 +9,7 @@
 	},
 	"landing": {
 		"slider_opts": {},
+		"search_links": false,
 		"layout": "a",
 		"product_message": "Buy Now!",
 		"showcase": ["product"],
