@@ -36,8 +36,10 @@ store.data.all.forEach(function(d) {
 			d.buttons = d.buttons || {};
 			d[cat].forEach(function(related) {
 				var relative = CT.data.get(related);
-				relative._brefs.push(d.key);
-				d.buttons[relative.name] = store.core.search.link(related);
+				if (relative) { // messed up db?
+					relative._brefs.push(d.key);
+					d.buttons[relative.name] = store.core.search.link(related);
+				}
 			});
 		}
 	});
