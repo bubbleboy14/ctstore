@@ -13,6 +13,7 @@ CT.onload(function() {
 		}
 	};
 	new CT.slider.Slider(CT.merge({
+		noEnter: true,
 		navButtons: false,
 		parent: CT.dom.id("slider"),
 		frames: store.data.product.map(function(d) {
