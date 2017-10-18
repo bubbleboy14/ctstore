@@ -4,7 +4,7 @@ store.core.util = {
 			CT.dom.node(d.name, "div", "biggest"),
 			CT.dom.node(d.description)
 		];
-		if (dtype == "product") {
+		if (dtype && dtype.startsWith("product")) {
 			content.push(CT.dom.button("Add to Cart", function() {
 				store.core.cart.increase(d);
 				alert("ok!");
