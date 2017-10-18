@@ -70,10 +70,16 @@ store.core.search = {
 		core.config.ctstore.search.data.forEach(function(category) {
 			var frames = store.core.search.frames(category, words);
 			if (frames.length) data.push({
-				label: category,
+				label: searchwords + ": " + category,
 				frames: frames
 			});
 		});
 		store.core.search[core.config.ctstore.search.layout](data);
+	},
+	all: function() {
+		store.core.search[core.config.ctstore.search.layout]([{
+			label: "products",
+			frames: store.data.product
+		}]);
 	}
 };
