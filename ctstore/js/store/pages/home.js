@@ -34,9 +34,14 @@ CT.onload(function() {
 	CT.dom.setContent(CT.dom.id("showcase"),
 		CT.dom.div(store.data[cfg.showcase].map(function(d) {
 			return CT.dom.div(CT.dom.link([
-				CT.dom.div(null, "w1 h4-5 rounder",
-					null, null, { backgroundImage: "url(" + d.img + ")" }),
-				CT.dom.div(d.name, "big h1-5 bold nonowrap")
+				CT.dom.div(null, "w1", null, null, {
+					height: "65%",
+					border: "7px solid black",
+					backgroundImage: "url(" + d.img + ")"
+				}),
+				CT.dom.div(d.name, "big h1-5 bold nonowrap", null, null, {
+					fontSize: "103%"
+				})
 			], cfg.search_links ? function() {
 				store.core.search.results(d.label);
 			} :  _modal(d)), "h9-10 m5 inline-block vtop hoverglow");
