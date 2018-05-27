@@ -12,25 +12,31 @@ CT.onload(function() {
 			store.core.util.modal(d, d.modelName);
 		}
 	};
-	new CT.slider.Slider(CT.merge({
-		noEnter: true,
-		navButtons: false,
-		parent: CT.dom.id("slider"),
-		frames: store.data.product.map(function(d) {
-			return {
-				title: d.label,
-				blurb: d.description,
-				img: d.img,
-				onclick: _modal(d),
-				tab: {
-					content: CT.dom.link(cfg.product_message,
-						store.core.search.link(d.label),
-						null, "biggerest padded block pointer"),
-					origin: "topright"
+	if (cfg.slider_alternative)
+		cfg.slider_alternative();
+	else if (cfg.slider_replacement)
+		CT.dom.setContent("slider", cfg.slider_replacement());
+	else {
+		new CT.slider.Slider(CT.merge({
+			noEnter: true,
+			navButtons: false,
+			parent: CT.dom.id("slider"),
+			frames: store.data.product.map(function(d) {
+				return {
+					title: d.label,
+					blurb: d.description,
+					img: d.img,
+					onclick: _modal(d),
+					tab: {
+						content: CT.dom.link(cfg.product_message,
+							store.core.search.link(d.label),
+							null, "biggerest padded block pointer"),
+						origin: "topright"
+					}
 				}
-			}
-		})
-	}, cfg.slider_opts));
+			})
+		}, cfg.slider_opts));
+	}
 	CT.dom.setContent(CT.dom.id("showcase"),
 		CT.dom.div(store.data[cfg.showcase].map(function(d) {
 			return CT.dom.div(CT.dom.link([
