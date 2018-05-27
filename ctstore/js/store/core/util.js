@@ -17,6 +17,70 @@ store.core.util = {
 	}
 };
 
+store.core.util.auction = {
+	acquire: function(target) {
+		CT.db.get("auction", function(auctions) {
+			store.core.util.auction.render(auctions, target);
+		}, 1, 0, null, {
+			deadline: {
+				value: CT.parse.date2string(null, true),
+				comparator: ">="
+			}
+		});
+	},
+	render: function(auctions, target) {
+		if (!auctions.length)
+			return CT.dom.setContent(target || "ctmain",
+				CT.dom.div("no auction today. come back soon!", "centered padded"));
+		var bid, izu, auction = auctions[0], inode = CT.dom.node(), bnode = CT.dom.div(null, "pb10"),
+			u = user.core.get(), loadBid = function(bidz) {
+				CT.dom.clear(bnode);
+				if (bidz.length) {
+					bid = bidz[0];
+					izu = u.key == bid.user;
+					CT.dom.addContent(bnode, (izu ? "Your" : "High") + " bid: " + bid.amount);
+				}
+				(!bid || !izu) && CT.dom.addContent(bnode, CT.dom.button("Place Bid", function() {
+					(new CT.modal.Prompt({
+						prompt: "How much?",
+						cb: function(amount) {
+							var params = {
+								action: "bid",
+								amount: amount,
+								auction: auction.key,
+								user: u.key
+							};
+							CT.net.post({
+								path: "/_store",
+								params: params,
+								cb: function() {
+									loadBid([params]);
+								}
+							});
+						}
+					})).show();
+				}));
+			};
+		CT.db.one(auction.item, function(item) {
+			CT.dom.setContent(inode, [
+				CT.dom.img(item.image, "wm1-2 hm1-2 right"),
+				CT.dom.div(item.name, "bigger"),
+				CT.dom.div(item.description, "pv10")
+			]);
+		});
+		CT.db.get("bid", loadBid, 1, 0, "-amount", {
+			auction: auction.key
+		});
+		CT.dom.setContent(target || "ctmain", CT.dom.div([
+			inode, bnode,
+			[
+				"Auction ends at: " + auction.deadline,
+				CT.parse.countdown((CT.parse.string2date(auction.deadline) - Date.now()) / 1000)
+			]
+		], "padded"));
+	}
+};
+
 var ccc = core.config.ctstore;
 if (core.config.footer && !core.config.footer.logo)
 	core.config.footer.logo = ccc.logo || ccc.name;
