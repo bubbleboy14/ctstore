@@ -7,6 +7,25 @@ CT.dom.addStyle(null, "/css/layouts/landing/" + cfg.layout + ".css");
 
 CT.onload(function() {
 	CT.initCore();
+	if (cfg.check21 && !user.core.get()) {
+		var redir = function() {
+			location = "http://duckduckgo.com";
+		};
+		var p = new CT.modal.Prompt({
+			noClose: true,
+			data: ["yes", "no"],
+			transition: "slide",
+			style: "single-choice",
+			prompt: "Are You Over 21?",
+			cb: function(answer) {
+				p.on.hide = function() {};
+				if (answer != "yes")
+					redir();
+			}
+		});
+		p.on.hide = redir;
+		p.show();
+	}
 	var _modal = function(d) {
 		return function() {
 			store.core.util.modal(d, d.modelName);
