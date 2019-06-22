@@ -18,6 +18,6 @@ class Auction(db.ModelBase):
 
 class Bid(db.ModelBase):
 	auction = db.ForeignKey(kind=Auction)
-	user = db.ForeignKey(kind="user")
+	user = db.ForeignKey()
 	amount = db.Float()
 	emailed = db.Boolean(default=False)
