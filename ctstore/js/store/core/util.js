@@ -18,9 +18,9 @@ store.core.util = {
 };
 
 store.core.util.auction = {
-	acquire: function(target) {
+	acquire: function(target, alt_bid) {
 		CT.db.get("auction", function(auctions) {
-			store.core.util.auction.render(auctions, target);
+			store.core.util.auction.render(auctions, target, alt_bid);
 		}, 1, 0, null, {
 			deadline: {
 				value: CT.parse.date2string(null, true),
@@ -28,7 +28,7 @@ store.core.util.auction = {
 			}
 		});
 	},
-	render: function(auctions, target) {
+	render: function(auctions, target, alt_bid) {
 		if (!auctions.length)
 			return CT.dom.setContent(target || "ctmain",
 				CT.dom.div("no auction today. come back soon!", "centered padded"));
@@ -40,7 +40,7 @@ store.core.util.auction = {
 					izu = u.key == bid.user;
 					CT.dom.addContent(bnode, (izu ? "Your" : "High") + " bid: " + bid.amount);
 				}
-				(!bid || !izu) && CT.dom.addContent(bnode, CT.dom.button("Place Bid", function() {
+				(!bid || !izu) && CT.dom.addContent(bnode, CT.dom.button("Place Bid", alt_bid || function() {
 					(new CT.modal.Prompt({
 						prompt: "How much?",
 						cb: function(amount) {
