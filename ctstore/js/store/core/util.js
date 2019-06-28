@@ -81,14 +81,18 @@ store.core.util.auction = {
 	}
 };
 
-var ccc = core.config.ctstore;
-if (core.config.footer && !core.config.footer.logo)
-	core.config.footer.logo = ccc.logo || ccc.name;
-core.config.header.right.push(store.core.search.field());
-if (!core.config.header.centerLogo)
-	core.config.header.centerLogo = false;
-if (!core.config.header.rightPadding)
-	core.config.header.rightPadding = "25px";
-if (location.pathname != "/store/checkout.html")
-	core.config.header.right.push(CT.dom.link("Shopping Cart",
-		store.core.cart.modal, null, core.config.ctstore.cart_link_class || "block pv10"));
+var cfg = core.config.ctstore;
+if (cfg.nofrills)
+	CT.dom.Q('link[rel=stylesheet][href="/css/store.css"]', document.head)[0].remove();
+else {
+	if (core.config.footer && !core.config.footer.logo)
+		core.config.footer.logo = ccc.logo || ccc.name;
+	core.config.header.right.push(store.core.search.field());
+	if (!core.config.header.centerLogo)
+		core.config.header.centerLogo = false;
+	if (!core.config.header.rightPadding)
+		core.config.header.rightPadding = "25px";
+	if (location.pathname != "/store/checkout.html")
+		core.config.header.right.push(CT.dom.link("Shopping Cart",
+			store.core.cart.modal, null, core.config.ctstore.cart_link_class || "block pv10"));
+}
