@@ -1,0 +1,36 @@
+#lister .row {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around;
+}
+#lister .box {
+    width: 28%;
+    min-width: 240px;
+    max-width: 320px;
+    max-height: 300px;
+    margin: 10px;
+    border: 2px solid gray;
+}
+#lister .box .hero {
+    width: 100%;
+    height: 120px;
+    background-size: cover;
+    background-position: center;
+}
+#lister .box:hover .hero {
+    background-size: contain;
+}
+#lister .box .content {
+    padding: 4px;
+}
+@media (max-width: 845px) {
+    #lister .box {
+        min-width: 45%;
+    }
+}
+@media (max-width: 630px) {
+    #lister .box {
+        min-width: 96%;
+    }
+}
