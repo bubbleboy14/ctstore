@@ -6,7 +6,7 @@ CT.dom.addStyle(null, "/css/layouts/results/" + core.config.ctstore.search.layou
 
 CT.onload(function() {
 	CT.initCore();
-	CT.dom.setContent(CT.dom.id("results"), "search away!");
+	CT.dom.setContent("ctmain", "search away!");
 	var terms = unescape(location.hash.slice(1));
 	if (terms) {
 		if (terms == "LIST")
