@@ -35,7 +35,7 @@ store.core.search = {
 	},
 	slideshow: function(data) {
 		new CT.slider.Slider({
-			parent: CT.dom.id("results"),
+			parent: "ctmain",
 			mode: "chunk",
 			subMode: "profile",
 			arrowPosition: "top",
@@ -45,7 +45,7 @@ store.core.search = {
 		});
 	},
 	gallery: function(data) {
-		CT.dom.setContent(CT.dom.id("results"), CT.dom.node(data.map(function(d) {
+		CT.dom.setContent("ctmain", CT.dom.node(data.map(function(d) {
 			return [
 				CT.dom.node(d.label, "div", "bigger bold"),
 				CT.layout.grid(d.frames.map(function(f) {
@@ -60,13 +60,37 @@ store.core.search = {
 			];
 		}), "div", "full scrolly"));
 	},
+	flex: function(rows) {
+		CT.dom.setContent("ctmain", CT.dom.div(rows.map(function(row) {
+			return [
+				CT.dom.div(row.label, "bigger bold bottompadded"),
+				CT.dom.div(row.frames.map(function(item) {
+					return CT.dom.div([
+						CT.dom.div(null, "hero", null, null, {
+							backgroundImage: 'url("' + item.image + '")'
+						}),
+						CT.dom.div([
+							CT.dom.div(item.name, "big bold"),
+							CT.dom.div(item.variety, "right italic"),
+							"price: " + item.price,
+							item.description
+						], "content")
+					], "box pointer", null, {
+						onclick: function() {
+							store.core.util.modal(item, row.label);
+						}
+					});
+				}), "row")
+			];
+		}), null, "lister"));
+	},
 	results: function(searchwords) {
 		if (location.pathname != "/store/results.html") {
 			location = "/store/results.html#" + escape(searchwords);
 			return;
 		}
 		var data = [], words = searchwords.toLowerCase().split(" ");
-		CT.dom.setContent(CT.dom.id("results"), "searching...");
+		CT.dom.setContent("ctmain", "searching...");
 		core.config.ctstore.search.data.forEach(function(category) {
 			var frames = store.core.search.frames(category, words);
 			if (frames.length) data.push({
