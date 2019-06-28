@@ -2,7 +2,7 @@
 	"name": "CTStore E-Commerce Application",
 	"data": "json",
 	"search": {
-		"layout": "slideshow",
+		"layout": "flex",
 		"data": ["product"],
 		"buttons": [],
 		"blurs": [ "what are you looking for?", "what ails you?", "enter search terms" ]
