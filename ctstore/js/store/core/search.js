@@ -93,6 +93,8 @@ store.core.search = {
 			location = "/store/results.html#" + escape(searchwords);
 			return;
 		}
+		if (!searchwords)
+			return store.core.search.all();
 		var data = [], words = searchwords.toLowerCase().split(" ");
 		CT.dom.setContent("ctmain", "searching...");
 		core.config.ctstore.search.data.forEach(function(category) {
