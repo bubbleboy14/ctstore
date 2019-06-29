@@ -70,8 +70,8 @@ store.core.search = {
 							backgroundImage: 'url("' + item.image + '")'
 						}),
 						CT.dom.div([
-							CT.dom.div(item.name, "big bold"),
 							CT.dom.div(item.variety, "right italic"),
+							CT.dom.div(item.name, "big bold"),
 							"price: " + item.price,
 							item.description
 						], "content")
