@@ -12,12 +12,18 @@ CT.onload(function() {
 	store.core.cart.load();
 	CT.dom.setContent("items", store.core.cart.list());
 	CT.dom.setContent("payment", pnode);
-	CT.pay.init({ // TODO: fuller integration, including cc!
+	CT.pay.init({
 		mode: pcfg.mode,
 		cb: function() {
-			new CT.pay.Form({
-				parent: pnode
-			});
+			var fopts = { parent: pnode };
+			if (pcfg.mode == "cc") {
+				fopts.item = {
+					membership: pcfg.membership,
+					amount: store.core.cart.total(),
+					notes: store.core.cart.receipt()
+				};
+			}
+			new CT.pay.Form(fopts);
 		}
 	});
 	if (pcfg.notice) {
