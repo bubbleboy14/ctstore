@@ -5,6 +5,7 @@ class Product(db.ModelBase):
 	description = db.Text()
 	image = db.Binary()
 	price = db.Float()
+	variety = db.String()
 
 class Item(db.ModelBase): # keeps it listed separately...
 	name = db.String()
