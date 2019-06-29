@@ -105,9 +105,16 @@ store.core.search = {
 		store.core.search[core.config.ctstore.search.layout](data);
 	},
 	all: function() {
-		store.core.search[core.config.ctstore.search.layout]([{
-			label: "products",
-			frames: store.data.product
-		}]);
+		var cfg = core.config.ctstore;
+		store.core.search[cfg.search.layout]((cfg.data == "variety") ?
+			cfg.search.data.map(function(variety) {
+				return {
+					label: variety + "s",
+					frames: store.data[variety]
+				};
+			}) : [{
+				label: "products",
+				frames: store.data.all
+			}]);
 	}
 };
