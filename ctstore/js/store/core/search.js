@@ -61,7 +61,7 @@ store.core.search = {
 		}), "div", "full scrolly"));
 	},
 	flex: function(rows) {
-		CT.dom.setContent("ctmain", CT.dom.div(rows.map(function(row) {
+		var lister = CT.dom.div(rows.map(function(row) {
 			return [
 				CT.dom.div(row.label, "bigger bold bottompadded"),
 				CT.dom.div(row.frames.map(function(item) {
@@ -82,7 +82,11 @@ store.core.search = {
 					});
 				}), "row")
 			];
-		}), null, "lister"));
+		}), null, "lister");
+		CT.dom.setContent("ctmain", core.config.ctstore.nofrills ? [
+			CT.dom.div(store.core.search.field(), "right"),
+			lister
+		] : lister);
 	},
 	results: function(searchwords) {
 		if (location.pathname != "/store/results.html") {
