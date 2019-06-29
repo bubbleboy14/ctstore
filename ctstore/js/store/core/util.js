@@ -9,7 +9,9 @@ store.core.util = {
 				store.core.cart.increase(d);
 				alert("ok!");
 			}, "w1 bigger padded mv5"));
-		}
+		} else if (d.buttons)
+			for (var b in d.buttons)
+				content.push(CT.dom.button(b, d.buttons[b], "w1 bigger padded mv5"));
 		(new CT.modal.Modal({
 			transition: "slide",
 			content: content
