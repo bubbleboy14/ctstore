@@ -36,6 +36,16 @@ store.core.cart = {
 			];
 		});
 	},
+	receipt: function() {
+		return Object.values(store.core.cart._items).map(function(d) {
+			return (d.price * d.count) + " for " + d.count + " " + d.label;
+		}).join("\n");
+	},
+	total: function() {
+		return Object.values(store.core.cart._items).reduce(function(a, b) {
+			return (a.price * a.count) + (b.price * b.count);
+		});
+	},
 	load: function() {
 		store.core.cart._items = CT.storage.get("cart");
 	},
