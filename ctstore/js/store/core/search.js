@@ -61,6 +61,8 @@ store.core.search = {
 		}), "div", "full scrolly"));
 	},
 	flex: function(rows) {
+		if (!rows.length)
+			return CT.dom.setContent("ctmain", "nothing yet!");
 		var lister = CT.dom.div(rows.map(function(row) {
 			return [
 				CT.dom.div(row.label, "bigger bold bottompadded"),
@@ -114,6 +116,8 @@ store.core.search = {
 					label: variety + "s",
 					frames: store.data[variety]
 				};
+			}).filter(function(d) {
+				return d.frames;
 			}) : [{
 				label: "products",
 				frames: store.data.all
