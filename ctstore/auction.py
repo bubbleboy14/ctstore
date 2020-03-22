@@ -13,7 +13,7 @@ enjoy!
 """
 
 def response():
-	log("initiating cronscan", important=True)
+	log("initiating auction scan", important=True)
 	az = Auction.query(
 		Auction.settled == False,
 		Auction.deadline <= datetime.now()
@@ -36,6 +36,6 @@ def response():
 			)
 			b.emailed = True
 			b.put()
-	log("cronscan succeeded -- goodbye!")
+	log("auction scan succeeded -- goodbye!")
 
 respond(response, failMsg="cronscan failed")
