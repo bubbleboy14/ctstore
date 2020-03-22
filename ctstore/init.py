@@ -5,14 +5,13 @@ jss = os.path.join("js", "store")
 dirs = [jss]
 
 copies = {
-	".": ["cron.yaml"],
 	"css": ["custom.css"],
 	"html": ["index.html"]
 }
 copies[jss] = ["data.js"]
 
 syms = {
-	".": ["_store.py", "cronscan.py"],
+	".": ["_store.py", "auction.py"],
 	"js": ["store.js"],
 	"css": ["store.css", "layouts"],
 	"html": ["store"]
