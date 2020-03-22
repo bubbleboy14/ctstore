@@ -1,4 +1,3 @@
-cron:
 - description: auction mailer
   url: /cronscan
   schedule: every 24 hours
